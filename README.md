@@ -1,7 +1,7 @@
 blogpostpy
 ===============================
 
-version number: 0.0.1
+version number: 0.0.2
 author: Max Resnick
 
 Overview
@@ -26,8 +26,8 @@ Installation requirements:
 
 Install with all dependencies
 
-    $ wget https://github.com/grumps/blogpostpy/releases/download/v0.0.1/blogpostpy-0.0.1-py2.py3-none-any.whl
-    $ pip install blogpostpy-0.0.1-py2.py3-none-any.whl
+    $ wget https://github.com/grumps/blogpostpy/releases/download/v0.0.2/blogpostpy-0.0.2-py2.py3-none-any.whl
+    $ pip install blogpostpy-0.0.2-py2.py3-none-any.whl
 
 To install use pip:
 
