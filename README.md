@@ -22,6 +22,7 @@ Installation requirements:
 
     1. Working pip installation on a modern version of python3+ (this should work with python2 but is untested).
     2. Pip should be also be recent version
+    3. You are installing in a virtual environment (python) console scripts tends to be bit weird for system packages
 
 Install with all dependencies
 

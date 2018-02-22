@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
+from setuptools import setup, find_packages
+from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 here = path.abspath(path.dirname(__file__))
 
@@ -37,5 +39,5 @@ setup(
     author='Max Resnick',
     install_requires=install_requires,
     dependency_links=dependency_links,
-    author_email='max@ofmax.li'
+    author_email='max@ofmax.li',
 )
