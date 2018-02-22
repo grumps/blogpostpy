@@ -13,7 +13,7 @@ def test_get_posts(client):
     # we get an "array" back
     assert type(result.json) == list
     # we get object with id, title, body
-    assert ('id', 'title', 'body') == result.json()[0].keys()
+    assert {'post_id', 'title', 'body'} == set(result.json[0].keys())
     
 def test_create_post(client):
     post_msg = {u'title': u'Double Under', u'body': u'Magic Methods'}

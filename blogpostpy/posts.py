@@ -8,13 +8,15 @@ INSERT INTO posts (title, body)
 VALUES (:title, :body);
 """.strip()
 
+POST_FIELDS = ('post_id', 'title', 'body')
 GET_POSTS_SQL = """
-SELECT * FROM posts;
+SELECT post_id, title, body FROM posts;
 """.strip()
 
 
 def get_posts(session):
-    return session.execute(GET_POSTS_SQL).fetchall()
+    rows = session.execute(GET_POSTS_SQL).fetchall()
+    return [dict(zip(POST_FIELDS, r)) for r in rows]
 
 
 def create_post(session, title, body):
@@ -23,9 +25,8 @@ def create_post(session, title, body):
 
 class GetPostResource(object):
     def on_get(self, req, resp):
-        # run query
-        # return response array
-        resp.body = 'OK'
+        results = get_posts(req.session)
+        resp.body = json.dumps(results)
 
 
 class CreatePostResource(object):
