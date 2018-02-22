@@ -24,7 +24,7 @@ Installation requirements:
     2. Pip should be also be recent version
     3. You are installing in a virtual environment (python) console scripts tends to be bit weird for system packages
 
-Install with all dependencies
+Install with all dependencies/or an official release
 
     $ wget https://github.com/grumps/blogpostpy/releases/download/v0.0.2/blogpostpy-0.0.2-py2.py3-none-any.whl
     $ pip install blogpostpy-0.0.2-py2.py3-none-any.whl
