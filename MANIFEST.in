@@ -1,2 +1,4 @@
 include README.md
-include requirements.txt
+include reqs/requirements.txt
+include reqs/test_requirements.txt
+include blogpostpy/blog.db

@@ -15,7 +15,8 @@ with open(path.join(here, 'reqs/requirements.txt'), encoding='utf-8') as f:
     all_reqs = f.read().split('\n')
 
 install_requires = [x.strip() for x in all_reqs if 'git+' not in x]
-dependency_links = [x.strip().replace('git+', '') for x in all_reqs if x.startswith('git+')]
+dependency_links = [x.strip().replace('git+', '')
+                    for x in all_reqs if x.startswith('git+')]
 
 setup(
     name='blogpostpy',
@@ -26,9 +27,9 @@ setup(
     download_url='https://github.com/grumps/blogpostpy/tarball/' + __version__,
     license='BSD',
     classifiers=[
-      'Development Status :: 3 - Alpha',
-      'Intended Audience :: Developers',
-      'Programming Language :: Python :: 3',
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'Programming Language :: Python :: 3',
     ],
     keywords='',
     packages=find_packages(exclude=['tests*']),

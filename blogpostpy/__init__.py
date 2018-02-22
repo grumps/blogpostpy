@@ -1,11 +1,12 @@
 import sqlite3
+import os
 
 import falcon
 
 from blogpostpy import posts
 
-# TODO this wont survive packaing
-_db_con = sqlite3.connect('blog.db')
+path, file_name = os.path.split(__file__)
+_db_con = sqlite3.connect(os.path.join(path, 'blog.db'))
 
 class DBCursor(object):
     """database connection"""
