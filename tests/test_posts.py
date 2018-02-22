@@ -18,4 +18,5 @@ def test_get_posts(client):
 def test_create_post(client):
     post_msg = {u'title': u'Double Under', u'body': u'Magic Methods'}
     result = client.simulate_post('/post', json=post_msg)
-    assert result.status == 201
+    assert result.status == '201 Created'
+

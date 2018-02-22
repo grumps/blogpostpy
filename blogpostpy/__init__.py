@@ -8,16 +8,11 @@ from blogpostpy import posts
 _db_con = sqlite3.connect('blog.db')
 
 class DBCursor(object):
-    """cursor middleware"""
+    """database connection"""
 
     def process_resource(self, req, resp, resource, params):
-        """cursor routed routed requests"""
-        req.session = _db_con.cursor()
-
-    def process_response(self, req, resp, resource, req_succeeded):
-        """close the session on the way out if a cursor was created"""
-        if req.session:
-            req.session.close()
+        """attach db connection for routed requests"""
+        req.session = _db_con
 
 app = falcon.API(middleware=DBCursor())
 app.add_route('/posts', posts.GetPostResource())

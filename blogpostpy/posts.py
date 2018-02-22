@@ -1,5 +1,7 @@
 import json
 
+import falcon
+
 
 CREATE_POST_SQL = """
 INSERT INTO posts (title, body)
@@ -27,9 +29,18 @@ class GetPostResource(object):
 
 
 class CreatePostResource(object):
-    def on_post(self, req, resp):
-        # check title
-        # check body
-        # response
-        resp.body = 'OK'
 
+    def validate(self, body):
+        allowed_keys = ('title', 'body')
+        for k, v in body.items():
+            if k in allowed_keys and isinstance(v, str):
+                continue
+            else:
+                raise falcon.HTTPBadRequest('Invalid JSON Object')
+
+    def on_post(self, req, resp):
+        body = json.load(req.bounded_stream)
+        self.validate(body)
+        create_post(req.session, body['title'], body['body'])
+        req.session.commit()
+        resp.status = falcon.HTTP_CREATED
